@@ -11,15 +11,23 @@ function initMap() {
         center: { lat: 30.2672, lng: -97.7431 },
         mapTypeId: 'satellite'
     });
+}
 
+function toggleHeatmap() {
     heatmap = new google.maps.visualization.HeatmapLayer({
         data: getPoints(),
         map: map
     });
+    heatmap.setMap(heatmap.getMap() ? null : map);
 }
 
-function toggleHeatmap() {
-    heatmap.setMap(map);
+function togglePothole() {
+
+    heatmap = new google.maps.visualization.HeatmapLayer({
+        data: getPointsPothole(),
+        map: map
+    });
+    heatmap.setMap(heatmap.getMap() ? null : map);
 }
 
 function changeGradient() {
@@ -59,6 +67,22 @@ function getPoints() {
             let lat = e.sr_location_lat_long.coordinates[1];
             let obj = new google.maps.LatLng(lat, long);
             points.push(obj);
+        })
+        console.log(points)
+    })
+    return points;
+}
+
+function getPointsPothole() {
+    let points = [];
+    $.get("https://data.austintexas.gov/resource/5h38-fd8d.json?$query=SELECT%20sr_location_lat_long,%20sr_type_desc%20WHERE%20sr_location_lat_long%20IS%20NOT%20NULL%20LIMIT%2050000", (data) => {
+        data.forEach(e => {
+            if (e.sr_type_desc.toLowerCase().includes("pothole")) {
+                let long = e.sr_location_lat_long.coordinates[0];
+                let lat = e.sr_location_lat_long.coordinates[1];
+                let obj = new google.maps.LatLng(lat, long);
+                points.push(obj); 
+            }
         })
         console.log(points)
     })
