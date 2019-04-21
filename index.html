@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>Heatmaps</title>
     <style>
@@ -24,41 +26,77 @@
             top: 10px;
             left: 25%;
             z-index: 5;
-            background-color: #fff;
             padding: 5px;
-            border: 1px solid #999;
-            text-align: center;
             font-family: 'Roboto', 'sans-serif';
             line-height: 30px;
             padding-left: 10px;
         }
 
-        #floating-panel {
-            background-color: #fff;
-            border: 1px solid #999;
-            left: 25%;
-            padding: 5px;
-            position: absolute;
-            top: 10px;
-            z-index: 5;
+        #buttonsAll {
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            box-sizing: content-box;
+            padding: 1px;
+            width: 130px;
+            text-align: center;
+        }
+
+        #buttonsAll:hover {
+            color: grey;
+            border-color: slateblue;
+        }
+
+        #button {
+            width: 120px;
+            height: 90px;
+
         }
     </style>
+
 </head>
 
 <body>
-    <div id="floating-panel">
-        <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-        <button onclick="changeGradient()">Change gradient</button>
-        <button onclick="changeRadius()">Change radius</button>
-        <button onclick="changeOpacity()">Change opacity</button>
-        <button onclick="togglePothole()">Toggle Pothole</button>
+    <div id="floating-panel" class="container">
+            <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="toggleHeatmap()">Toggle All</button>
+            </div>
+            <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="togglePothole()">Toggle Potholes</button> 
+            </div>
+            <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="toggleAnimal()">Toggle Animal Incidents</button>
+            </div>
+            <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="toggleMaintenance()">Toggle Maintenance
+                        Requests</button>
+            </div>
+             <div id="buttonsAll" class="">
+                 <div id="buttonsPolice">
+                     <button id="button" class="btn btn-secondary" onclick="togglePolice()">Toggle Police
+                         Activity</button>
+                 </div>
+             </div>
+             <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="changeGradient()">Change gradient</button>
+             </div>
+             <div id="buttonsAll" class="">
+                <button id="button" class="btn btn-secondary" onclick="changeOpacity()">Change opacity</button>
+             </div>
     </div>
     <div id="map"></div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0UEEaGRbvXVRM5qgseOONpYftUjbuea8&libraries=visualization&callback=initMap">
-        </script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
