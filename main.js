@@ -44,8 +44,6 @@ function initMap() {
 }
 
 function toggleHeatmap() {
-    var strin = 'buttonsAll';
-    changeElement(heat, strin);
     if (!heat) {
         heatmap.setMap(map);
         heat = true;
@@ -56,8 +54,6 @@ function toggleHeatmap() {
 }
 
 function togglePothole() {
-    var strin1 = 'buttonsPothole';
-    changeElement(pothole, strin1);
     if (!pothole) {
         heatmap2.setMap(map);
         pothole = true;
@@ -68,8 +64,6 @@ function togglePothole() {
 }
 
 function toggleAnimal() {
-    var strin2 = 'buttonsAnimal';
-    changeElement(animal, strin2);
     if (!animal) {
         heatmap3.setMap(map);
         animal = true;
@@ -80,8 +74,6 @@ function toggleAnimal() {
 }
 
 function toggleMaintenance() {
-    var strin = 'buttonsMaintenance';
-    changeElement(maintenance, strin);
     if (!maintenance) {
         heatmap4.setMap(map);
         maintenance = true;
@@ -92,8 +84,6 @@ function toggleMaintenance() {
 }
 
 function togglePolice() {
-    var strin = 'buttonsPolice';
-    changeElement(police, strin);
     if (!police) {
         heatmap5.setMap(map);
         police = true;
@@ -125,8 +115,6 @@ function changeGradient() {
         'rgba(191, 0, 31, 1)',
         'rgba(255, 0, 0, 1)'
     ]
-    var strin = 'buttonsGradient';
-    changeElement(gradientBool, strin);
     if (!gradientBool) {
         heatmap.set('gradient', gradient);
         heatmap2.set('gradient', gradient);
@@ -144,22 +132,7 @@ function changeGradient() {
     }
 }
 
-function changeElement(x, strin) {
-    if (x) {
-        // Default button style
-        var el = document.getElementById(strin);
-        el.style.fontSize = "15px";
-    } else {
-        // after we clicked style
-        var el = document.getElementById(strin);
-        el.style.fontSize = "15px";
-    }
-    return;
-}
-
 function changeOpacity() {
-    var strin = 'buttonsOpacity';
-    changeElement(opacity, strin);
     if (!opacity) {
         heatmap.set('opacity', 0.2);
         heatmap2.set('opacity', 0.2);
